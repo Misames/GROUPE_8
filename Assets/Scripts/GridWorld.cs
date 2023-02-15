@@ -3,7 +3,6 @@ using UnityEngine;
 
 public class GridWorld : MonoBehaviour
 {
-    public float gamma = 0.9f;
     public GameObject robot;
     public GameObject objectif;
     public List<GameObject> lstCube;
@@ -46,12 +45,12 @@ public class GridWorld : MonoBehaviour
                     if (nextCube == null) Debug.Log("fini !");
 
                     State nextSate = nextCube.GetComponent<State>();
-                    float v = currentState.reward + (gamma * (nextSate.value));
+                    float v = currentState.reward + (0.9f * (nextSate.value));
                     if (v > newValue) newValue = v;
                 }
 
                 currentState.value = newValue;
-                delta = Mathf.Max(delta, tempValue - currentState.value);
+                delta = Mathf.Max(delta, Mathf.Abs(tempValue - currentState.value));
                 indexCube++;
             }
             if (delta < 0.005) break;
