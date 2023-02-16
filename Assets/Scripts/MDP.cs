@@ -19,7 +19,7 @@ public class MDP : MonoBehaviour
         ValueIteration();
     }
 
-    private void ValueIteration(uint maxIteration = 1000, float gamma = 0.9f, float delta = 0f)
+    private void ValueIteration(uint maxIteration = 1000, float gamma = 0.9f)
     {
         // Init Value Function
         V = new Dictionary<State, float>();
@@ -32,7 +32,8 @@ public class MDP : MonoBehaviour
         }
 
         uint iteration = 0;
-        while (iteration < maxIteration && delta < 0.005f)
+        float delta = 1;
+        while (iteration < maxIteration && delta > 0.005f)
         {
             delta = 0f;
             int indexState = 0;
@@ -43,7 +44,7 @@ public class MDP : MonoBehaviour
                 Action maxA = null;
                 foreach (var a in s.lstAction)
                 {
-                    // Fetch each transitions for one action
+                    // Find next state for the current action
                     float value = 0f;
                     State sNext = null;
                     switch (a.moveDirection)
@@ -74,13 +75,12 @@ public class MDP : MonoBehaviour
 
                 policy[s] = maxA;
                 Vprime[s] = maxV;
-                delta = Mathf.Max(delta, Mathf.Abs(Vprime[s] - V[s]));
+                delta = Mathf.Max(delta, Mathf.Abs(V[s] - Vprime[s]));
                 indexState++;
             }
 
             // Update Value Function
             foreach (var s in states) V[s] = Vprime[s];
-
             iteration++;
         }
     }
