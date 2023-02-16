@@ -13,7 +13,6 @@ public class MDP : MonoBehaviour
     private Dictionary<State, float> V;
     private Dictionary<State, float> Vprime;
     private Dictionary<State, Action> policy;
-    private int indexState = 0;
 
     private void Start()
     {
@@ -36,7 +35,7 @@ public class MDP : MonoBehaviour
         while (iteration < maxIteration && delta < 0.005f)
         {
             delta = 0f;
-            indexState = 0;
+            int indexState = 0;
             foreach (var s in states)
             {
                 // Find best action desicion
@@ -46,13 +45,26 @@ public class MDP : MonoBehaviour
                 {
                     // Fetch each transitions for one action
                     float value = 0f;
-                    foreach (KeyValuePair<State, float> pair in GetTransitions(s, a))
+                    State sNext = null;
+                    switch (a.moveDirection)
                     {
-                        State sNext = pair.Key;
-                        float prob = pair.Value;
-                        value += prob * (a.reward + gamma * V[sNext]);
+                        case 0:
+                            sNext = states[indexState + 4];
+                            break;
+                        case 1:
+                            sNext = states[indexState - 1];
+                            break;
+                        case 2:
+                            sNext = states[indexState + 1];
+                            break;
+                        case 3:
+                            sNext = states[indexState - 4];
+                            break;
+                        default:
+                            break;
                     }
 
+                    value += a.reward + gamma * V[sNext];
                     if (value > maxV)
                     {
                         maxV = value;
@@ -71,29 +83,5 @@ public class MDP : MonoBehaviour
 
             iteration++;
         }
-    }
-
-    // Get list of action for the next move
-    private Dictionary<State, float> GetTransitions(State s, Action a)
-    {
-        Dictionary<State, float> probTransitions = new Dictionary<State, float>();
-        switch (a.moveDirection)
-        {
-            case 0:
-                probTransitions.Add(states[indexState + 4], a.probabiliy);
-                break;
-            case 1:
-                probTransitions.Add(states[indexState - 1], a.probabiliy);
-                break;
-            case 2:
-                probTransitions.Add(states[indexState + 1], a.probabiliy);
-                break;
-            case 3:
-                probTransitions.Add(states[indexState - 4], a.probabiliy);
-                break;
-            default:
-                break;
-        }
-        return probTransitions;
     }
 }
