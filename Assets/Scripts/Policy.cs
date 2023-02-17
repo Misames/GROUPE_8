@@ -1,42 +1,22 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Policy : MonoBehaviour
 {
-    private Action[] _policy;
-    
+
     [SerializeField]
     private List<State> states;
-    
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    private Action[] policy;
 
-    private void Init()
-    {
-        
-    }
+    private void Start() { }
 
-    private void PolicyEvaluation()
-    {
-        
-    }
+    private void Init() { }
 
-    private void PolicyImprovement()
-    {
-        
-    }
+    private void PolicyEvaluation() { }
 
-    private void V(Action[] policy)
-    {
-        
-    }
+    private void PolicyImprovement() { }
 
-    private void Q()
-    {
-        
-    }
+    private void V(Action[] policy) { }
+
+    private void Q() { }
 }
