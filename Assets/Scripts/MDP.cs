@@ -3,11 +3,6 @@ using UnityEngine;
 
 public class MDP : MonoBehaviour
 {
-    public GameObject player;
-    public GameObject objectif;
-    public Material matplayer;
-    public Material matDefault;
-
     [SerializeField]
     private List<State> states;
     [SerializeField]
@@ -21,12 +16,41 @@ public class MDP : MonoBehaviour
 
     private void Start()
     {
-        ValueIteration();
+        SARSA();
+        foreach (var item in policy)
+            Debug.Log(item.Key.name + " : " + item.Value.moveDirection);
     }
 
-    private void ValueIteration(uint maxIteration = 1000)
+    // Give the next state for one action on a state
+    // @todo rendre les actions génériques ou ajouter des action d'autre type que TOP LEFT RIGHT BOT
+    private State GetNextState(Action a, int indexState)
     {
-        // Init Value Function
+        State nextState = null;
+
+        switch (a.moveDirection)
+        {
+            case Direction.TOP:
+                nextState = states[indexState + 4];
+                break;
+            case Direction.LEFT:
+                nextState = states[indexState - 1];
+                break;
+            case Direction.RIGHT:
+                nextState = states[indexState + 1];
+                break;
+            case Direction.BOT:
+                nextState = states[indexState - 4];
+                break;
+            default:
+                break;
+        }
+
+        return nextState;
+    }
+
+    // Init Value Function
+    private void InitValueFunction()
+    {
         V = new Dictionary<State, float>();
         Vprime = new Dictionary<State, float>();
         policy = new Dictionary<State, Action>();
@@ -35,6 +59,12 @@ public class MDP : MonoBehaviour
             V[s] = 0f;
             Vprime[s] = 0f;
         }
+    }
+
+    // Create new Policy
+    private void ValueIteration(uint maxIteration = 1000)
+    {
+        InitValueFunction();
 
         uint iteration = 0;
         float delta = 1;
@@ -72,46 +102,25 @@ public class MDP : MonoBehaviour
         }
     }
 
-    // update target error d'un state à un autre grace à un move (Action)
-    private void TDUpdate(State s, Action a, int indexState, uint x = 0)
+    // Create une autre new Policy
+    private void SARSA(uint x = 0)
     {
-        for (int i = 0; i <= x; i++)
+        InitValueFunction();
+
+        int indexState = 0;
+        foreach (State s in states)
         {
-            State nextState = GetNextState(a, indexState);
-            float tdError = a.reward + gamma * V[nextState] - V[s];
-            V[s] += alpha * tdError;
-
-            // swap state
-            s = nextState;
+            for (int i = 0; i <= x; i++)
+            {
+                foreach (var a in s.lstAction)
+                {
+                    State nextState = GetNextState(a, indexState);
+                    float targetError = a.reward + gamma * V[nextState] - V[s];
+                    V[s] += alpha * targetError;
+                }
+            }
+            indexState++;
         }
+        Debug.Log("fini SARSA !");
     }
-
-    // Give the next state for one action on a state
-    // @todo rendre les actions génériques ou ajouter des action d'autre type que TOP LEFT RIGHT BOT
-    private State GetNextState(Action a, int indexState)
-    {
-        State nextState = null;
-
-        switch (a.moveDirection)
-        {
-            case Direction.TOP:
-                nextState = states[indexState + 4];
-                break;
-            case Direction.LEFT:
-                nextState = states[indexState - 1];
-                break;
-            case Direction.RIGHT:
-                nextState = states[indexState + 1];
-                break;
-            case Direction.BOT:
-                nextState = states[indexState - 4];
-                break;
-            default:
-                break;
-        }
-
-        return nextState;
-    }
-
-
 }
