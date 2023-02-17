@@ -15,10 +15,9 @@ public class Action
     public Direction direction;
     public int reward;
 };
+
 public class State : MonoBehaviour
 {
-    float targetError;
-    
     [SerializeField]
     public Action[] actionList;
 
