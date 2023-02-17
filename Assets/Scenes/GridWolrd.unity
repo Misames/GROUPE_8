@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571328, b: 0.3069217, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -237,7 +237,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   reward: 1
-  probabiliy: 0
   moveDirection: 3
 --- !u!114 &312505
 MonoBehaviour:
@@ -251,8 +250,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8793042ba4ba2ae4396431dc336dd7c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  reward: 10
-  probabiliy: 0
+  reward: 2
   moveDirection: 2
 --- !u!114 &312506
 MonoBehaviour:
@@ -267,7 +265,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   reward: 1
-  probabiliy: 0
   moveDirection: 1
 --- !u!1 &99458595
 GameObject:
@@ -385,7 +382,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   reward: 1
-  probabiliy: 0
   moveDirection: 3
 --- !u!114 &99458601
 MonoBehaviour:
@@ -400,7 +396,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   reward: -1
-  probabiliy: 0
   moveDirection: 2
 --- !u!114 &99458602
 MonoBehaviour:
@@ -415,7 +410,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   reward: 1
-  probabiliy: 0
   moveDirection: 1
 --- !u!114 &99458603
 MonoBehaviour:
@@ -430,7 +424,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   reward: -1
-  probabiliy: 0
   moveDirection: 0
 --- !u!1 &128949587
 GameObject:
@@ -544,7 +537,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   reward: 1
-  probabiliy: 0
   moveDirection: 3
 --- !u!114 &128949593
 MonoBehaviour:
@@ -559,7 +551,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   reward: 1
-  probabiliy: 0
   moveDirection: 1
 --- !u!1 &174730540
 GameObject:
@@ -677,7 +668,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   reward: 1
-  probabiliy: 0
   moveDirection: 3
 --- !u!114 &174730546
 MonoBehaviour:
@@ -692,7 +682,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   reward: 1
-  probabiliy: 0
   moveDirection: 2
 --- !u!114 &174730547
 MonoBehaviour:
@@ -707,7 +696,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   reward: 1
-  probabiliy: 0
   moveDirection: 1
 --- !u!114 &174730548
 MonoBehaviour:
@@ -722,7 +710,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   reward: 1
-  probabiliy: 0
   moveDirection: 0
 --- !u!1 &254782098
 GameObject:
@@ -836,7 +823,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   reward: 1
-  probabiliy: 0
   moveDirection: 2
 --- !u!114 &254782104
 MonoBehaviour:
@@ -851,7 +837,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   reward: 1
-  probabiliy: 0
   moveDirection: 0
 --- !u!1 &298264530
 GameObject:
@@ -965,7 +950,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   reward: 1
-  probabiliy: 0
   moveDirection: 1
 --- !u!114 &298264536
 MonoBehaviour:
@@ -980,7 +964,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   reward: 1
-  probabiliy: 0
   moveDirection: 0
 --- !u!1 &730093600
 GameObject:
@@ -1096,7 +1079,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   reward: 1
-  probabiliy: 0
   moveDirection: 0
 --- !u!114 &730093606
 MonoBehaviour:
@@ -1111,7 +1093,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   reward: 1
-  probabiliy: 0
   moveDirection: 0
 --- !u!114 &730093607
 MonoBehaviour:
@@ -1126,7 +1107,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   reward: -1
-  probabiliy: 0
   moveDirection: 0
 --- !u!1 &800155938
 GameObject:
@@ -1242,7 +1222,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   reward: 1
-  probabiliy: 0
   moveDirection: 0
 --- !u!114 &800155944
 MonoBehaviour:
@@ -1257,7 +1236,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   reward: 1
-  probabiliy: 0
   moveDirection: 0
 --- !u!114 &800155945
 MonoBehaviour:
@@ -1272,7 +1250,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   reward: 1
-  probabiliy: 0
   moveDirection: 0
 --- !u!1 &918386662
 GameObject:
@@ -1388,7 +1365,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   reward: -1
-  probabiliy: 0
   moveDirection: 3
 --- !u!114 &918386668
 MonoBehaviour:
@@ -1403,7 +1379,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   reward: 1
-  probabiliy: 0
   moveDirection: 2
 --- !u!114 &918386669
 MonoBehaviour:
@@ -1418,7 +1393,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   reward: 1
-  probabiliy: 0
   moveDirection: 1
 --- !u!1 &985058071
 GameObject:
@@ -1430,6 +1404,7 @@ GameObject:
   m_Component:
   - component: {fileID: 985058072}
   - component: {fileID: 985058073}
+  - component: {fileID: 985058074}
   m_Layer: 0
   m_Name: Script
   m_TagString: Untagged
@@ -1484,6 +1459,18 @@ MonoBehaviour:
   - {fileID: 918386664}
   - {fileID: 312501}
   - {fileID: 128949589}
+--- !u!114 &985058074
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 985058071}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca148caa55f98174292d4879f4842f20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1001525393
 GameObject:
   m_ObjectHideFlags: 0
@@ -1598,7 +1585,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   reward: 1
-  probabiliy: 0
   moveDirection: 3
 --- !u!114 &1001525399
 MonoBehaviour:
@@ -1613,7 +1599,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   reward: -1
-  probabiliy: 0
   moveDirection: 1
 --- !u!114 &1001525400
 MonoBehaviour:
@@ -1628,7 +1613,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   reward: 1
-  probabiliy: 0
   moveDirection: 0
 --- !u!1 &1197164092
 GameObject:
@@ -1744,7 +1728,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   reward: 1
-  probabiliy: 0
   moveDirection: 2
 --- !u!114 &1197164098
 MonoBehaviour:
@@ -1759,7 +1742,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   reward: 1
-  probabiliy: 0
   moveDirection: 0
 --- !u!114 &1197164099
 MonoBehaviour:
@@ -1774,7 +1756,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   reward: 1
-  probabiliy: 0
   moveDirection: 3
 --- !u!1 &1535883156
 GameObject:
@@ -1892,7 +1873,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   reward: 1
-  probabiliy: 0
   moveDirection: 3
 --- !u!114 &1535883162
 MonoBehaviour:
@@ -1907,7 +1887,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   reward: 1
-  probabiliy: 0
   moveDirection: 2
 --- !u!114 &1535883163
 MonoBehaviour:
@@ -1922,7 +1901,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   reward: 1
-  probabiliy: 0
   moveDirection: 1
 --- !u!114 &1535883164
 MonoBehaviour:
@@ -1937,7 +1915,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   reward: 1
-  probabiliy: 0
   moveDirection: 0
 --- !u!1 &1641625478
 GameObject:
@@ -2053,7 +2030,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   reward: 1
-  probabiliy: 0
   moveDirection: 3
 --- !u!114 &1641625484
 MonoBehaviour:
@@ -2068,7 +2044,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   reward: 1
-  probabiliy: 0
   moveDirection: 1
 --- !u!114 &1641625485
 MonoBehaviour:
@@ -2082,8 +2057,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8793042ba4ba2ae4396431dc336dd7c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  reward: 10
-  probabiliy: 0
+  reward: 2
   moveDirection: 0
 --- !u!1 &1755428237
 GameObject:
@@ -2197,7 +2171,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   reward: 1
-  probabiliy: 0
   moveDirection: 3
 --- !u!114 &1755428243
 MonoBehaviour:
@@ -2212,7 +2185,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   reward: 1
-  probabiliy: 0
   moveDirection: 2
 --- !u!1 &2016478836
 GameObject:
@@ -2374,7 +2346,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   reward: 1
-  probabiliy: 0
   moveDirection: 3
 --- !u!114 &2019235581
 MonoBehaviour:
@@ -2389,7 +2360,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   reward: -1
-  probabiliy: 0
   moveDirection: 2
 --- !u!114 &2019235582
 MonoBehaviour:
@@ -2404,7 +2374,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   reward: 1
-  probabiliy: 0
   moveDirection: 0
 --- !u!1 &2057366563
 GameObject:
@@ -2615,7 +2584,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   reward: -1
-  probabiliy: 0
   moveDirection: 3
 --- !u!114 &2086810257
 MonoBehaviour:
@@ -2630,7 +2598,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   reward: 1
-  probabiliy: 0
   moveDirection: 2
 --- !u!114 &2086810258
 MonoBehaviour:
@@ -2645,7 +2612,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   reward: -1
-  probabiliy: 0
   moveDirection: 1
 --- !u!114 &2086810259
 MonoBehaviour:
@@ -2660,7 +2626,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   reward: 1
-  probabiliy: 0
   moveDirection: 0
 --- !u!1 &2100921021
 GameObject:

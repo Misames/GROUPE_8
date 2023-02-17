@@ -1,6 +1,6 @@
 using UnityEngine;
 
-enum Direction
+public enum Direction
 {
     TOP,
     LEFT,
@@ -11,5 +11,5 @@ enum Direction
 public class Action : MonoBehaviour
 {
     public int reward = 0;
-    public int moveDirection;
+    public Direction moveDirection;
 }

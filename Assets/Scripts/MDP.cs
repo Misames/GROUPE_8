@@ -49,16 +49,16 @@ public class MDP : MonoBehaviour
                     State sNext = null;
                     switch (a.moveDirection)
                     {
-                        case 0:
+                        case Direction.TOP:
                             sNext = states[indexState + 4];
                             break;
-                        case 1:
+                        case Direction.LEFT:
                             sNext = states[indexState - 1];
                             break;
-                        case 2:
+                        case Direction.RIGHT:
                             sNext = states[indexState + 1];
                             break;
-                        case 3:
+                        case Direction.BOT:
                             sNext = states[indexState - 4];
                             break;
                         default:
