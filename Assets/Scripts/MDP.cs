@@ -17,6 +17,10 @@ public class MDP : MonoBehaviour
     private void Start()
     {
         ValueIteration();
+        foreach (var state in policy)
+        {
+            Debug.Log(state.Key.name +" : " + state.Value.direction);   
+        }
     }
 
     private void ValueIteration(uint maxIteration = 1000, float gamma = 0.9f)
@@ -42,12 +46,12 @@ public class MDP : MonoBehaviour
                 // Find best action desicion
                 float maxV = float.MinValue;
                 Action maxA = null;
-                foreach (var a in s.lstAction)
+                foreach (var a in s.actionList)
                 {
                     // Find next state for the current action
                     float value = 0f;
                     State sNext = null;
-                    switch (a.moveDirection)
+                    switch (a.direction)
                     {
                         case Direction.TOP:
                             sNext = states[indexState + 4];
@@ -58,7 +62,7 @@ public class MDP : MonoBehaviour
                         case Direction.RIGHT:
                             sNext = states[indexState + 1];
                             break;
-                        case Direction.BOT:
+                        case Direction.BOTTOM:
                             sNext = states[indexState - 4];
                             break;
                         default:
