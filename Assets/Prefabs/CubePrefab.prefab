@@ -275,7 +275,7 @@ GameObject:
   - component: {fileID: 6812943170913057310}
   m_Layer: 0
   m_Name: CubePrefab
-  m_TagString: Robot
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -357,14 +357,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   actionList:
-  - direction: 0
-    reward: 1
-  - direction: 1
-    reward: 1
-  - direction: 2
-    reward: 1
-  - direction: 3
-    reward: 1
+  - reward: 1
+    direction: 0
+  - reward: 1
+    direction: 1
+  - reward: 1
+    direction: 2
+  - reward: 1
+    direction: 3
 --- !u!1 &8337382974593044832
 GameObject:
   m_ObjectHideFlags: 0
