@@ -6,7 +6,8 @@ public enum Direction
     TOP,
     RIGHT,
     LEFT,
-    BOTTOM
+    BOTTOM,
+    LOOP
 }
 
 [System.Serializable]

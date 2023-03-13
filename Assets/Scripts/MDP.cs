@@ -65,6 +65,9 @@ public class MDP : MonoBehaviour
                         case Direction.BOTTOM:
                             sNext = states[indexState - 4];
                             break;
+                        case Direction.LOOP:
+                            sNext = states[indexState];
+                            break;
                         default:
                             break;
                     }
