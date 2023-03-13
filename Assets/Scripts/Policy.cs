@@ -13,9 +13,15 @@ public class Policy : MonoBehaviour
     private int maxPolicyIteration = 1000;
     private int maxValueIteration = 100;
     
+    
+    
     [SerializeField]
     private float gamma = 0.75f;
 
+    
+    [SerializeField]
+    private int startingCube;
+    
     [SerializeField]
     private List<State> states;
     
@@ -35,6 +41,13 @@ public class Policy : MonoBehaviour
             else
                 Debug.Log(_policy[i]);
         }
+        
+    }
+    
+    private void OnDrawGizmosSelected()
+    {
+        bool done = false;
+        int i = startingCube;
         
     }
 
