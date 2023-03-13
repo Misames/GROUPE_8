@@ -715,8 +715,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 985058072}
-  - component: {fileID: 985058073}
   - component: {fileID: 985058074}
+  - component: {fileID: 985058073}
   m_Layer: 0
   m_Name: Script
   m_TagString: Untagged
@@ -745,9 +745,9 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 985058071}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f30fc268d696adc4b9a45a2e9ea9488f, type: 3}
+  m_Script: {fileID: 11500000, guid: 0e22976fbc0ba6847a733d326ec16e9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   states:
@@ -775,7 +775,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 985058071}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f14a786c0c29a5b4592a615ce61613f3, type: 3}
   m_Name: 

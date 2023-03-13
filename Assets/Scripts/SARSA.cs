@@ -38,7 +38,7 @@ public class SARSA : MonoBehaviour
     {
         int currentState = 0;
 
-        // Choisir une action a basée sur une politique (pour Sprime)
+        // Choisir une action basée sur une politique (pour Sprime)
         Action currentAction = EpsilonGreedy(states[0]);
 
         int i = 0;
@@ -49,22 +49,22 @@ public class SARSA : MonoBehaviour
             // atteindre le nouvel état s'
             State nextState = currentAction.GetNextState(states, currentState);
 
-            // Cast State in index
+            // Trouver l'index du state
             for (int j = 0; states[j].name != nextState.name; j++)
                 currentState = j;
             currentState++;
 
-            // Choisir une action a basée sur une politique (pour new currentState)
+            // Choisir une action basée sur une politique
             Action nextAction = EpsilonGreedy(states[currentState]);
             nextState = nextAction.GetNextState(states, currentState);
 
-            // Cast State in index
+            // Trouver l'index du state
             int indexNextState = 0;
             for (int p = 0; states[p].name != nextState.name; p++)
                 indexNextState = p;
             indexNextState++;
 
-            // Update Q
+            // Mettre à jour la fonction de valeur
             float delta = currentAction.reward + gamma * Q[nextState] - Q[states[currentState]];
             Q[states[currentState]] += alpha * delta;
 
@@ -86,6 +86,7 @@ public class SARSA : MonoBehaviour
             UpdateQ();
     }
 
+    // Changer la valeur d'espsilon (1 => exploration, 0 => exploitation)
     private Action EpsilonGreedy(State currentState, float epsilon = 1f)
     {
         if (Random.Range(0, 1) <= epsilon)

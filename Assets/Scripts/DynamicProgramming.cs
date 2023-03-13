@@ -1,7 +1,8 @@
 using System.Collections.Generic;
+using System.Diagnostics;
 using UnityEngine;
 
-public class MDP : MonoBehaviour
+public class DynamicProgramming : MonoBehaviour
 {
     [SerializeField]
     private List<State> states;
@@ -14,11 +15,19 @@ public class MDP : MonoBehaviour
 
     private void Start()
     {
+        Stopwatch stopwatch = new Stopwatch();
+
+        // Démarrer le chronomètre
+        stopwatch.Start();
+
+        // Appeler la fonction à mesurer
         ValueIteration();
-        foreach (var state in policy)
-        {
-            Debug.Log(state.Key.name + " : " + state.Value.direction);
-        }
+
+        // Arrêter le chronomètre
+        stopwatch.Stop();
+
+        // Afficher le temps d'exécution
+        UnityEngine.Debug.Log(stopwatch.ElapsedMilliseconds);
     }
 
     // Init Value Function
