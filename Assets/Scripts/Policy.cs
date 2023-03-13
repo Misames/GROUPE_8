@@ -10,11 +10,11 @@ public class Policy : MonoBehaviour
     private Action[] _policy;
     private Dictionary<State, float> V;
 
-    private int maxPolicyIteration = 100;
+    private int maxPolicyIteration = 1000;
     private int maxValueIteration = 100;
     
     [SerializeField]
-    private float gamma = 0.9f;
+    private float gamma = 0.75f;
 
     [SerializeField]
     private List<State> states;
@@ -30,7 +30,10 @@ public class Policy : MonoBehaviour
         Debug.Log("Policy:");
         for (int i = 0; i < _policy.Length; i++)
         {
-            Debug.Log(_policy[i].direction);
+            if(_policy[i]!=null) 
+                Debug.Log(_policy[i].direction);
+            else
+                Debug.Log(_policy[i]);
         }
         
     }
@@ -43,7 +46,10 @@ public class Policy : MonoBehaviour
         for (int i = 0; i < states.Count; i++)
         {
             V.Add(states[i],0);
-            _policy[i] = states[i].actionList[Random.Range(0, states[i].actionList.Length)];
+            if (states[i].actionList.Length > 0)
+                _policy[i] = states[i].actionList[Random.Range(0, states[i].actionList.Length)];
+            else
+                _policy[i] = null;
         }
 
     }
@@ -52,56 +58,59 @@ public class Policy : MonoBehaviour
     {
         float delta;
         int it = -1;
-        do
-        {
-            delta = 0;
+        delta = 0;
+
             for(int i=0; i< states.Count; i++)
             {
-                float val = _policy[i].reward;
+                if (states[i].actionList.Length == 0)
+                    continue;
+                
+                float v = V[states[i]];
+                float val = 0;
                 for (int j = 0; j < states.Count; j++)
                 {
-                    val += _policy[StatePrime(j,_policy[j])].reward + gamma * V[states[StatePrime(j,_policy[j])]];
+                    val += RewardPrime(i,_policy[i],j) + gamma * V[states[j]];
                 }
 
-                delta = Math.Max(delta, Math.Abs(val - V[states[i]]));
+                delta = Math.Max(delta, Math.Abs(v - val));
                 V[states[i]] = val;
 
             }
             it++;
-        } while (delta > tolerance && it<maxValueIteration);
-
-     }
+            Debug.Log(delta);
+    }
 
     private Action[] PolicyImprovement()
     {
-        for (int i = 0; i < maxPolicyIteration; i++)
-        {Debug.Log("iteration: " + i);
+        for (int i = 0; i < maxPolicyIteration; i++){
             bool policyStable = true;
             
+            PolicyEvaluation();
             for (int j = 0; j < states.Count; j++)
             {
-                float valMax = _policy[j].reward;
+                if (states[j].actionList.Length == 0)
+                    continue;
+                float valMax = V[states[j]];
 
                 for (int k = 0; k < states[j].actionList.Length; k++)
                 {
-                    float val = states[j].actionList[k].reward;
+                    float val = 0;
                     for (int l = 0; l < states.Count; l++)
                     {
-                        val += _policy[StatePrime(l,_policy[l])].reward + gamma * V[states[StatePrime(l,_policy[l])]];
+                        val += RewardPrime(j,states[j].actionList[k],l) + gamma * V[states[l]];
                     }
 
-                    if (val > valMax && _policy[j] != states[j].actionList[k])
+                    if (val > valMax)
                     {
+                        Debug.Log("policy changed" + " state: " + j + ", val: " + val +", valMax: " + valMax);
                         _policy[j] = states[j].actionList[k];
                         valMax = val;
                         policyStable = false;
                     }
                 }
             }
-
-            if (!policyStable)
-                PolicyEvaluation();
-            else break;
+            if (policyStable)
+                break;
         }
 
         return _policy;
@@ -130,5 +139,15 @@ public class Policy : MonoBehaviour
 
         return 0;
     }
+
+    private float RewardPrime(int s, Action a, int sPrime)
+    {
+        int stateAction = StatePrime(s, a);
+        if (stateAction == sPrime)
+            return a.reward;
+        return 0;
+    }
+    
+    
 
 }
