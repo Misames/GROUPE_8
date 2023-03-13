@@ -21,7 +21,8 @@ public class SARSA : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.R)) SceneManager.LoadScene(0);
+        if (Input.GetKeyDown(KeyCode.R))
+            SceneManager.LoadScene(0);
     }
 
     // Init Value Function (Q)
@@ -38,9 +39,9 @@ public class SARSA : MonoBehaviour
         int currentState = 0;
 
         // Choisir une action a basée sur une politique (pour Sprime)
-        // /!\ j'ai choisi une action random
-        Action currentAction = new Action(Direction.TOP);
+        Action currentAction = EpsilonGreedy(states[0]);
 
+        int i = 0;
         while (true)
         {
             // Effectuer l'action a, 
@@ -49,17 +50,19 @@ public class SARSA : MonoBehaviour
             State nextState = currentAction.GetNextState(states, currentState);
 
             // Cast State in index
-            for (int j = 0; states[j].name != nextState.name; j++) currentState = j;
-            currentState += 1;
+            for (int j = 0; states[j].name != nextState.name; j++)
+                currentState = j;
+            currentState++;
 
             // Choisir une action a basée sur une politique (pour new currentState)
-            // /!\ j'ai choisi une action random
-            Action nextAction = new Action(Direction.RIGHT);
+            Action nextAction = EpsilonGreedy(states[currentState]);
             nextState = nextAction.GetNextState(states, currentState);
 
             // Cast State in index
             int indexNextState = 0;
-            for (int p = 0; states[p].name != nextState.name; p++) indexNextState = p;
+            for (int p = 0; states[p].name != nextState.name; p++)
+                indexNextState = p;
+            indexNextState++;
 
             // Update Q
             float delta = currentAction.reward + gamma * Q[nextState] - Q[states[currentState]];
@@ -70,13 +73,30 @@ public class SARSA : MonoBehaviour
             // Mettre à jour l'action actuelle a <- a'
             currentAction = nextAction;
 
-            if (states[currentState].name == "Objectif") break;
+            Debug.Log(i++);
+            if (states[currentState].gameObject.tag == "Objectif")
+                break;
         }
     }
 
     private void RunEpisode(uint runNumber = 0)
     {
         InitValueFunction();
-        for (int i = 0; i <= runNumber; i++) UpdateQ();
+        for (int i = 0; i <= runNumber; i++)
+            UpdateQ();
+    }
+
+    private Action EpsilonGreedy(State currentState, float epsilon = 1f)
+    {
+        if (Random.Range(0, 1) <= epsilon)
+        {
+            int size = currentState.actionList.Length;
+            int rdm = Random.Range(0, size);
+            return currentState.actionList[rdm];
+        }
+        else
+        {
+            return null;
+        }
     }
 }
